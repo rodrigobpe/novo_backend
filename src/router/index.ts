@@ -1,6 +1,9 @@
 import { Router } from "express";
+import { userRoutes } from "./router.user";
 
-export const router = Router();
-router.get('/', (req,res)=>{
-    res.status(200).send('Olá Mundo')
+export const routes = Router()
+routes.get('/',(req,res)=>{
+    res.send('corno')
 })
+
+routes.use("/users", userRoutes)
