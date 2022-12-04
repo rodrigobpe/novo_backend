@@ -10,18 +10,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id_usuario String @id @default(uuid())
-  email           String        @unique @db.VarChar(60)
-  data_nascimento DateTime      @db.Date
-  sexo            String        @db.VarChar(1)
-  nome            String        @db.VarChar(60)
-  senha           String        
+model User {
+  id_usuario      String   @id @default(uuid())
+  email           String   @unique @db.VarChar(60)
+  data_nascimento DateTime @db.Date
+  sexo            String   @db.VarChar(1)
+  nome            String   @db.VarChar(60)
+  senha           String
   isAdmin         Boolean
 
   @@map("user")
 }
 
+model Book {
+  id_livro        Int    @id @default(autoincrement())
+  titulo          String @unique @db.VarChar(60)
+  sinopse         String @db.VarChar(1024)
+  caminho_arquivo String @db.VarChar(2048)
+  editora         String @db.VarChar(45)
+  idioma          String @db.VarChar(45)
+  ano             Int    @db.Year
+  autor           String @db.VarChar(128)
+  genero          String @db.VarChar(60)
+
+  @@map("book")
+}
+
+//---------------------------------
 // model Usuario {
 //   id_usuario      String        @id @default(uuid())
 //   email           String        @unique @db.VarChar(60)

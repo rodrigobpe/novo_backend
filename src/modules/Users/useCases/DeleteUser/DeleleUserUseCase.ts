@@ -13,11 +13,11 @@ export class DeleleUserUseCase{
         if(!userAlreadyExists){
             throw new AppError("Action not completed, because user doesn't exists")
         }
-        const user = await prisma.user.delete({
+        const deleteUser = await prisma.user.delete({
             where:{
                 id_usuario:id
             }
         })
-        return user
+        return deleteUser
     }
 }
