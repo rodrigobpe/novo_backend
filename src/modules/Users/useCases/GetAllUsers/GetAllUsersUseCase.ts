@@ -1,6 +1,7 @@
 import { prisma } from "../../../../db/prismaClient";
 import { AppError } from "../../../../errors/AppError";
 
+
 export class GetAllUsersUseCase{
     async execute(){
         const users = await prisma.user.findMany({
