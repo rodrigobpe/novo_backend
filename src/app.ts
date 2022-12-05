@@ -18,7 +18,7 @@ app.use(morgan('dev'))
 //rotas
 app.use(routes)
 
-// tretando erros
+// tratando erros
 app.use((err:Error, req:Request,res:Response,next:NextFunction)=>{
     if(err instanceof AppError){
         return res.status(err.statusCode).json({

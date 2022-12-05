@@ -25,7 +25,7 @@ model User {
 model Book {
   id_livro        Int    @id @default(autoincrement())
   titulo          String @unique @db.VarChar(60)
-  sinopse         String @db.VarChar(1024)
+  sinopse         String @db.VarChar(2048)
   caminho_arquivo String @db.VarChar(2048)
   editora         String @db.VarChar(45)
   idioma          String @db.VarChar(45)
